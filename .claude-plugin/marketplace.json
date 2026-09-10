@@ -1,0 +1,28 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ssh-mcp",
+  "description": "Управление серверами по SSH для агентов с поддержкой MCP",
+  "owner": {
+    "name": "votsie",
+    "email": "131788269+votsie@users.noreply.github.com"
+  },
+  "version": "0.2.0",
+  "plugins": [
+    {
+      "name": "ssh-mcp",
+      "description": "Управление серверами по SSH: интерактивная консоль с эмуляцией терминала, обмен файлами, туннели и память о серверах, переживающая перезапуск",
+      "version": "0.2.0",
+      "author": {
+        "name": "votsie"
+      },
+      "source": "./",
+      "category": "devops",
+      "tags": [
+        "ssh",
+        "sftp",
+        "tunnel",
+        "server-management"
+      ]
+    }
+  ]
+}

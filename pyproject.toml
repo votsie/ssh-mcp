@@ -1,0 +1,54 @@
+[project]
+name = "ssh-mcp"
+version = "0.2.0"
+description = "MCP-сервер для управления серверами по SSH: интерактивная консоль с эмуляцией терминала, файлы, туннели и память о серверах"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "votsie" }]
+keywords = ["mcp", "ssh", "sftp", "tunnel", "server-management", "devops"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = [
+    "mcp>=2.2,<3",
+    "paramiko>=5.0,<6",
+    "pyte>=0.8.2,<0.9",
+]
+
+[project.urls]
+Homepage = "https://github.com/votsie/ssh-mcp"
+Repository = "https://github.com/votsie/ssh-mcp"
+Issues = "https://github.com/votsie/ssh-mcp/issues"
+
+# Точка входа — то, чем инструмент устанавливается куда угодно:
+#   uvx --from git+<репозиторий> ssh-mcp
+[project.scripts]
+ssh-mcp = "ssh_mcp.server:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-timeout>=2.3"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ssh_mcp"]
+
+[tool.hatch.build.targets.sdist]
+# Скиллы и документация нужны в архиве: из него ставится плагин Claude Code.
+include = ["src", "skills", "scripts", "tests", "README.md", "INSTALL.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+timeout = 60

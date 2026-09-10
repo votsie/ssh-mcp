@@ -1,0 +1,22 @@
+{
+  "name": "ssh-mcp",
+  "version": "0.2.0",
+  "description": "Управление серверами по SSH: интерактивная консоль с эмуляцией терминала, обмен файлами, туннели и память о серверах, переживающая перезапуск",
+  "author": {
+    "name": "votsie"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ssh",
+    "sftp",
+    "tunnel",
+    "server-management",
+    "mcp"
+  ],
+  "skills": [
+    "./skills/ssh-servers/",
+    "./skills/ssh-interactive/",
+    "./skills/ssh-ops/"
+  ],
+  "mcpServers": "./.mcp.json"
+}
