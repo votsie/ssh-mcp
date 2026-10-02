@@ -1,7 +1,6 @@
 # ssh-mcp
 
-Управление серверами по SSH для любого агента с поддержкой MCP — Claude Code,
-Codex, Cursor, Claude Desktop, Windsurf, Zed. MCP-сервер плюс три руководства,
+Управление серверами по SSH для любого агента с поддержкой MCP — Codex, Cursor, Windsurf, Zed. MCP-сервер плюс три руководства,
 которые учат агента им пользоваться.
 
 Умеет интерактивную консоль с эмуляцией терминала (nano, htop, whiptail,
@@ -25,19 +24,11 @@ Codex, Cursor, Claude Desktop, Windsurf, Zed. MCP-сервер плюс три �
 
 ## Установка
 
-Ставится в любой MCP-клиент одной строкой прямо из репозитория — Claude Code,
-Codex, Cursor, Claude Desktop, Windsurf, Zed и что угодно ещё, что умеет
+Ставится в любой MCP-клиент одной строкой прямо из репозитория — Codex, Cursor, Windsurf, Zed и что угодно ещё, что умеет
 stdio-транспорт:
 
 ```
 uvx --from git+https://github.com/votsie/ssh-mcp ssh-mcp
-```
-
-Для Claude Code есть вариант плагином, вместе со скиллами:
-
-```bash
-claude plugin marketplace add https://github.com/votsie/ssh-mcp
-claude plugin install ssh-mcp@ssh-mcp
 ```
 
 Готовые блоки конфигурации под каждый клиент, установка без `uv`, переменные
@@ -49,12 +40,12 @@ claude plugin install ssh-mcp@ssh-mcp
 
 ## Руководства достаются любому агенту
 
-Скиллы понимает только Claude Code, поэтому один и тот же материал раздаётся
+Клиенты поддерживают разные способы получения руководств, поэтому материал раздаётся
 тремя способами, и источник у него один — `src/ssh_mcp/guides/`:
 
 | Способ | Кому |
 |---|---|
-| `skills/*/SKILL.md` | Claude Code (собираются из источника, `scripts/sync_skills.py`) |
+| `skills/*/SKILL.md` | совместимые MCP-клиенты (собираются из источника, `scripts/sync_skills.py`) |
 | инструкции при подключении | всем клиентам, которые их показывают модели |
 | инструмент `ssh_guide(topic)` | **всем без исключения** — инструменты видит любой агент |
 

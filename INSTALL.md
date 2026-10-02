@@ -29,23 +29,6 @@ uvx --from git+https://github.com/votsie/ssh-mcp ssh-mcp
 
 ---
 
-## Claude Code
-
-Плагином, вместе с тремя скиллами:
-
-```bash
-claude plugin marketplace add https://github.com/votsie/ssh-mcp
-claude plugin install ssh-mcp@ssh-mcp
-```
-
-Либо только MCP-сервером, без скиллов:
-
-```bash
-claude mcp add --scope user ssh -- uvx --from git+https://github.com/votsie/ssh-mcp ssh-mcp
-```
-
-После установки нужен перезапуск Claude Code.
-
 ## Codex CLI
 
 В `~/.codex/config.toml`:
@@ -70,11 +53,6 @@ args = ["--from", "git+https://github.com/votsie/ssh-mcp", "ssh-mcp"]
   }
 }
 ```
-
-## Claude Desktop
-
-В `claude_desktop_config.json` (Настройки → Разработчик → Изменить конфигурацию)
-— тот же блок `mcpServers`, что и для Cursor.
 
 ## Windsurf
 
@@ -146,7 +124,7 @@ git+https://github.com/votsie/ssh-mcp@v0.2.0
 
 ## Руководства для агентов без скиллов
 
-Скиллы понимает только Claude Code. Всем остальным тот же материал доступен
+Скиллы понимает только совместимые MCP-клиенты. Всем остальным тот же материал доступен
 двумя способами, и делать для этого ничего не нужно:
 
 * **инструкции сервера** уходят клиенту при подключении — там три правила,
@@ -168,7 +146,7 @@ git+https://github.com/votsie/ssh-mcp@v0.2.0
 **«uvx: command not found», сервер не стартует.** Самая частая причина, и почти
 всегда — не в самом uv. Клиент запускает сервер не из вашей оболочки, а из
 своего процесса, и `PATH` там другой: у приложений с graphical-интерфейсом
-(Claude Desktop на macOS — типичный случай) в нём нет ни `~/.local/bin`, ни
+(MCP-клиент на macOS — типичный случай) в нём нет ни `~/.local/bin`, ни
 `~/.cargo/bin`. Лечится абсолютным путём:
 
 ```bash
